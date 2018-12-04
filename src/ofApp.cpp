@@ -10,7 +10,7 @@ void ofApp::setup(){
     stateMachine.addState<quiz>();
     stateMachine.addState<result>();
 
-    stateMachine.changeState("stateA");//最初に呼び出すシーン
+    stateMachine.changeState("title");//最初に呼び出すシーン
 }
 
 //--------------------------------------------------------------
