@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxStateMachine.h" //アドオンを読み込む
 
 class ofApp : public ofBaseApp{
 
@@ -20,5 +21,7 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
+
+    itg::ofxStateMachine<> stateMachine; //アドオンをインスタンス化
 
 };
