@@ -1,8 +1,16 @@
 #include "ofApp.h"
+#include "title.h"
+#include "quiz.h"
+#include "result.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    //シーンの追加
+    stateMachine.addState<title>();
+    stateMachine.addState<quiz>();
+    stateMachine.addState<result>();
 
+    stateMachine.changeState("stateA");//最初に呼び出すシーン
 }
 
 //--------------------------------------------------------------
