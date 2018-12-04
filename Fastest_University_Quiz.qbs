@@ -12,6 +12,8 @@ Project{
         name: { return FileInfo.baseName(sourceDirectory) }
 
         files: [
+            "src/result.cpp",
+            "src/result.h",
             "src/title.cpp",
             "src/title.h",
             'src/main.cpp',
