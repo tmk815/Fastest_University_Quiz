@@ -15,6 +15,9 @@ void title::draw(){
 
 }
 
+void title::mousePressed(int x, int y, int button){
+
+}
 
 string title::getName(){
     return "title";
