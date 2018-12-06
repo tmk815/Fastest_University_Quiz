@@ -16,6 +16,7 @@ Project{
             "src/quiz.h",
             "src/result.cpp",
             "src/result.h",
+            "src/shareddata.h",
             "src/title.cpp",
             "src/title.h",
             'src/main.cpp',
