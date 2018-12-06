@@ -12,5 +12,6 @@ class title : public itg::ofxState<>{ //ofxStateを継承
     ofImage button0; //画像表示のためのインスタンス変数
     ofImage button1; //画像表示のためのインスタンス変数
     ofImage title; //画像表示のためのインスタンス変数
+    ofEasyCam cam;
     int timer; //時間経過
 };
