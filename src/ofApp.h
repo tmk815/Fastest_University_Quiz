@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxStateMachine.h" //アドオンを読み込む
+#include "SharedData.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,6 +23,6 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    itg::ofxStateMachine<> stateMachine; //アドオンをインスタンス化
+    itg::ofxStateMachine<SharedData> stateMachine; //アドオンをインスタンス化
 
 };

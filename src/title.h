@@ -1,7 +1,8 @@
 #pragma once
 #include "ofxState.h"
+#include "SharedData.h"
 
-class title : public itg::ofxState<>{ //ofxStateを継承
+class title : public itg::ofxState<SharedData>{ //ofxStateを継承
 
     void setup();
     void update();

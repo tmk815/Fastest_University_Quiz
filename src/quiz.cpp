@@ -1,9 +1,8 @@
 #include "quiz.h"
-#include "SharedData.h"
 
 //--------------------------------------------------------------
 void quiz::setup(){
-    ofTrueTypeFontSettings jsettings("Mamelon.otf", 60);//設定一式を納めるインスタンス
+    ofTrueTypeFontSettings jsettings("Mamelon.otf", 32);//設定一式を納めるインスタンス
     jsettings.addRanges(ofAlphabet::Emoji);//絵文字
     jsettings.addRanges(ofAlphabet::Japanese);//日本語
     jsettings.addRange(ofUnicode::Space);//スペース

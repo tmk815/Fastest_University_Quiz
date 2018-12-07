@@ -2,7 +2,7 @@
 #include "ofxState.h"
 #include "SharedData.h"
 
-class quiz : public itg::ofxState<>{ //ofxStateを継承
+class quiz : public itg::ofxState<SharedData>{ //ofxStateを継承
 
     void setup();
     void update();
