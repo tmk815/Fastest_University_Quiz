@@ -12,16 +12,16 @@ Project{
         name: { return FileInfo.baseName(sourceDirectory) }
 
         files: [
+            "src/SharedData.h",
             "src/quiz.cpp",
             "src/quiz.h",
             "src/result.cpp",
             "src/result.h",
-            "src/shareddata.h",
             "src/title.cpp",
             "src/title.h",
-            'src/main.cpp',
-            'src/ofApp.cpp',
-            'src/ofApp.h',
+            "src/main.cpp",
+            "src/ofApp.cpp",
+            "src/ofApp.h",
         ]
 
         of.addons: [
