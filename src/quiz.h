@@ -1,5 +1,6 @@
 #pragma once
 #include "ofxState.h"
+#include "SharedData.h"
 
 class quiz : public itg::ofxState<>{ //ofxStateを継承
 
@@ -9,4 +10,5 @@ class quiz : public itg::ofxState<>{ //ofxStateを継承
     void mousePressed(int x, int y, int button);
     string getName(); //状態の名前を返す関数
 
+    ofTrueTypeFont font; //フォント用
 };
