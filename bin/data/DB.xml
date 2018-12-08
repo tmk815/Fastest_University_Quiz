@@ -1,0 +1,9 @@
+<q1>
+    <statement>データベースを作成するときに使うSQLは何でしょう</statement>
+    <ans>create</ans>
+</q1>
+
+<q2>
+    <statement>データベースを削除するときに使うSQLは何でしょう</statement>
+    <ans>drop</ans>
+</q2>
