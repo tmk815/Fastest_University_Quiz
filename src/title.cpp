@@ -24,6 +24,7 @@ void title::draw(){
         ofDrawRectangle(w, h*i+40, w, h);
         ofDrawRectangle(w*14, h*i+40, w, h);
     }
+    ofDrawRectangle(w*6, h*7+40, w*4, h);
     ofFill();
     ofDrawRectangle(w, h*left+40, w, h);
     ofDrawRectangle(w*14, h*right+40, w, h);
@@ -58,6 +59,9 @@ void title::mousePressed(int x, int y, int button){
     }
     if(x/w==14 && 0<(y-40)/h && (y-40)/h<8){
         right=(y-40)/h;
+    }
+    if((y-40)/h==7 && 5<x/w && x/w<10 && 0<left && 0<right){
+        changeState("quiz");
     }
 }
 
