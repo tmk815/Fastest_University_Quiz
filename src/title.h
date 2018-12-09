@@ -15,6 +15,7 @@ class title : public itg::ofxState<SharedData>{ //ofxStateを継承
     ofImage title; //画像表示のためのインスタンス変数
     ofEasyCam cam;
     ofTrueTypeFont mecha60;
+    ofTrueTypeFont mecha40;
     int timer; //時間経過
     int w, h, left, right;
 };

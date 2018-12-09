@@ -3,6 +3,7 @@
 //--------------------------------------------------------------
 void title::setup(){
     mecha60.load("mechanoarc.ttf", 60);
+    mecha40.load("mechanoarc.ttf", 40);
     timer = 0; //時間初期宣言
     left = right = -10;
 }
@@ -25,6 +26,7 @@ void title::draw(){
         ofDrawRectangle(w*14, h*i+40, w, h);
     }
     ofDrawRectangle(w*6, h*7+40, w*4, h);
+    mecha40.drawString("start", ofGetWidth()/2-75, h*7.75+40);
     ofFill();
     ofDrawRectangle(w, h*left+40, w, h);
     ofDrawRectangle(w*14, h*right+40, w, h);
