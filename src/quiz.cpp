@@ -12,8 +12,11 @@ void quiz::setup(){
 void quiz::update(){
     string s = quiz_xml.getValue("q1:statement", "");
     if((!isans_1p) && (!isans_2p)){
-        if(s.size() >= timer/6 && timer%6 == 0){
-            statement += s.substr(timer/6,1);
+        if(s.length() >= timer/6 && timer%18 == 0){
+            if(timer%396==0 && timer!=0) {
+                statement += '\n';
+            }
+            statement += s.substr(timer/6,3);
         }
         timer++;
     }
