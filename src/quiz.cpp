@@ -18,7 +18,7 @@ void quiz::draw(){
 }
 
 void quiz::mousePressed(int x, int y, int button){
-
+    if(button == 2){changeState("title");} //右クリックでタイトルへ戻る
 }
 
 string quiz::getName(){

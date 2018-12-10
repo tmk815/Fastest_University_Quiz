@@ -58,12 +58,15 @@ void title::draw(){
 void title::mousePressed(int x, int y, int button){
     if(x/w==1 && 0<(y-40)/h && (y-40)/h<8){
         left=(y-40)/h;
+        getSharedData().genre = left; //1~7
     }
     if(x/w==14 && 0<(y-40)/h && (y-40)/h<8){
         right=(y-40)/h;
+        getSharedData().number_of_questions = right; //1~7
     }
     if((y-40)/h==7 && 5<x/w && x/w<10 && 0<left && 0<right){
         changeState("quiz");
+        left = right = -10;
     }
 }
 
