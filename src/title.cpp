@@ -11,30 +11,53 @@ void title::setup(){
 //--------------------------------------------------------------
 void title::update(){
     timer++; //1ずつ増加
-    w = ofGetWidth()/16; //
-    h = ofGetHeight()/9; //
+    w = ofGetWidth()/16; //画面横幅の１６分の1
+    h = ofGetHeight()/9; //画面縦幅の９分の1
 }
 
 //--------------------------------------------------------------
 void title::draw(){
+    ofEnableDepthTest(); //3dの動作正常化ON
     ofBackground(ofColor::black); //背景色設定
     ofSetColor(ofColor::white); //色指定：白
     mecha60.drawString("Buzzer Univercity Quiz", ofGetWidth()/2-500, 75); //タイトル描画
     ofNoFill(); //枠のみ
     for(int i=1; i<=7; i++){ //判定位置に四角描画
-        ofDrawRectangle(w, h*i+40, w, h);
-        ofDrawRectangle(w*14, h*i+40, w, h);
+        if(left==i){
+            ofFill(); //塗りつぶす
+            ofSetColor(ofColor::white);
+            ofDrawBox(w+w, h*left+40+h/2, 0, h); //左側の選んだ四角描画
+            ofNoFill();
+            ofSetColor(ofColor::black);
+            ofDrawBox(w+w, h*left+40+h/2, 0, h);
+            ofSetColor(ofColor::white);
+        }else{
+            ofDrawBox(w+w/2, h*i+40+h/2, 0, h);
+        }
+        if(right==i){
+            ofFill();
+            ofSetColor(ofColor::white);
+            ofDrawBox(w*14, h*right+40+h/2, 0, h); //右側の選んだ四角描画
+            ofNoFill();
+            ofSetColor(ofColor::black);
+            ofDrawBox(w*14, h*right+40+h/2, 0, h);
+            ofSetColor(ofColor::white);
+        }else{
+            ofDrawBox(w*14+w/2, h*i+40+h/2, 0, h);
+        }
     }
-    ofDrawRectangle(w*6, h*7+40, w*4, h); //start用の四角描画
+    for(int i=0; i<4; i++){
+        ofFill();
+        ofDrawBox(w*(6.5+i), h*7.5+40, 0, w);
+    }
+    ofDisableDepthTest(); //3dの動作正常化OFF
+    ofSetColor(ofColor::black);
     mecha40.drawString("start", ofGetWidth()/2-75, h*7.75+40); //start描画
-    ofFill(); //塗りつぶす
-    ofDrawRectangle(w, h*left+40, w, h); //左側の選んだ四角描画
-    ofDrawRectangle(w*14, h*right+40, w, h); //右側の選んだ四角描画
+    ofEnableDepthTest(); //3dの動作正常化ON
 //----------３Dボタンの描画始
     float size = 40; //3Dの箱一つのサイズ
     int x=3, z=2; //幅の半分、高さ
     cam.begin(); //画面操作ON
-    ofEnableDepthTest(); //3dの動作正常化ON
     ofRotateYDeg(timer); //y軸を回す
     ofRotateXDeg(-30); //x軸を30度傾ける
     ofNoFill(); //枠のみ
@@ -50,9 +73,9 @@ void title::draw(){
             }
         }
     }
-    ofDisableDepthTest(); //3dの動作正常化OFF
     cam.end(); //画面操作OFF
 //----------３Dボタンの描画終
+    ofDisableDepthTest(); //3dの動作正常化OFF
 }
 
 void title::mousePressed(int x, int y, int button){
