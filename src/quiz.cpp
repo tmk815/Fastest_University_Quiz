@@ -27,7 +27,8 @@ void quiz::draw(){
     //getSharedData().font.drawString(u8"クイズ画面", ofGetWidth()/2-100, ofGetHeight()/2);
     getSharedData().font.drawString(ofToString(getSharedData().genre),0,30);
     getSharedData().font.drawString(ofToString(getSharedData().number_of_questions),0,60);
-    getSharedData().font.drawString(u8""+statement,0,ofGetHeight()/2);
+    getSharedData().font.drawString(statement,0,ofGetHeight()/2);
+
     if(isans_1p || isans_2p){
         //回答欄
         ofDrawRectangle(150,400,90,90);
