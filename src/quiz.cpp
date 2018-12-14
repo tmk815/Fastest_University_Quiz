@@ -28,6 +28,13 @@ void quiz::draw(){
     getSharedData().font.drawString(ofToString(getSharedData().genre),0,30);
     getSharedData().font.drawString(ofToString(getSharedData().number_of_questions),0,60);
     getSharedData().font.drawString(u8""+statement,0,ofGetHeight()/2);
+    if(isans_1p || isans_2p){
+        //回答欄
+        ofDrawRectangle(150,400,90,90);
+        ofDrawRectangle(350,400,90,90);
+        ofDrawRectangle(550,400,90,90);
+        ofDrawRectangle(750,400,90,90);
+    }
 }
 
 void quiz::mousePressed(int x, int y, int button){
