@@ -96,22 +96,25 @@ void quiz::keyReleased(int key){
 }
 
 void quiz::makeChoices(){
-    for(int j=0;j<3;j++){
+    for(int j=0;j<4;j++){
         int i = rand() % 46;
         choice[j] = hrgn[i];
     }
-    choice[3] = answer.substr(position,1);
+    choice[rand()%4] = answer.substr(position,1);
     position += 1;
     checkAns();
 }
 
 void quiz::checkAns(){
+    //最後の文字まで答えたら
     if(answer.length() <= player_ans.length()){
         if(answer.compare(player_ans) == 0 && isans_1p){
             getSharedData().correct_answers_1p++;
+            getSharedData().incorrect_answer_1p--;
             quiz_number++;
         } else if(answer.compare(player_ans) == 0 && isans_2p){
             getSharedData().correct_answers_2p++;
+            getSharedData().incorrect_answer_2p--;
             quiz_number++;
         }
         isans_1p = false;
