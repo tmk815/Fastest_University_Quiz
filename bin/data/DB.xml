@@ -1,5 +1,5 @@
 <q1>
-    <statement>データベースを作成するときに使うSQLは何でしょう&#x0A;ああああ</statement>
+    <statement>データベースを作成するときに使うSQLは何でしょう</statement>
     <ans>create</ans>
 </q1>
 
@@ -7,3 +7,13 @@
     <statement>データベースを削除するときに使うSQLは何でしょう</statement>
     <ans>drop</ans>
 </q2>
+
+<q3>
+    <statement>データを挿入するときに使うSQLは何でしょう</statement>
+    <ans>insert</ans>
+</q3>
+
+<q4>
+    <statement>データを削除するときに使うSQLは何でしょう</statement>
+    <ans>delete</ans>
+</q4>
