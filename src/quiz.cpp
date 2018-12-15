@@ -10,13 +10,26 @@ void quiz::setup(){
     getSharedData().correct_answers_1p = 0;
     getSharedData().correct_answers_2p = 0;
     position = 0;
+    quiz_number = 0;
     srand(time_t(NULL));
 }
 
 //--------------------------------------------------------------
 void quiz::update(){
-    answer = quiz_xml.getValue("q1:ans", "");
-    string s = quiz_xml.getValue("q1:statement", "");
+    string ans_xml_num,quiz_xml_num; //文字列格納用
+    stringstream ss_ans,ss_quiz; //StringStream
+
+    ss_ans << "q" << to_string(quiz_number + 1) << ":ans";
+    ss_ans >> ans_xml_num;
+    answer = quiz_xml.getValue(ans_xml_num, ""); //xmlの読み込み
+
+    ss_quiz << "q" << to_string(quiz_number + 1) << ":statement";
+    ss_quiz >> quiz_xml_num;
+    string s = quiz_xml.getValue(quiz_xml_num, ""); //xmlの読み込み
+
+    getSharedData().font.drawString(ans_xml_num,0,120);
+    getSharedData().font.drawString(quiz_xml_num,0,150);
+
     if((!isans_1p) && (!isans_2p)){
         if(s.length() >= timer/6 && timer%18 == 0){
             if(timer%396==0 && timer!=0) {
@@ -80,25 +93,30 @@ void quiz::keyReleased(int key){
 }
 
 void quiz::makeChoices(){
-    checkAns();
     for(int j=0;j<3;j++){
         int i = rand() % 46;
         choice[j] = hrgn[i];
     }
     choice[3] = answer.substr(position,1);
     position += 1;
+    checkAns();
 }
 
 void quiz::checkAns(){
     if(answer.length() <= player_ans.length()){
         if(answer.compare(player_ans) == 0 && isans_1p){
             getSharedData().correct_answers_1p++;
+            quiz_number++;
         } else if(answer.compare(player_ans) == 0 && isans_2p){
             getSharedData().correct_answers_2p++;
+            quiz_number++;
         }
         isans_1p = false;
         isans_2p = false;
         player_ans = "";
+        position = 0;
+        timer = 0;
+        statement = "";
     }
 }
 
