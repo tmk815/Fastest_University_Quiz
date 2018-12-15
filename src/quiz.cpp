@@ -16,28 +16,32 @@ void quiz::setup(){
 
 //--------------------------------------------------------------
 void quiz::update(){
-    string ans_xml_num,quiz_xml_num; //文字列格納用
-    stringstream ss_ans,ss_quiz; //StringStream
+    if(quiz_number < 3){
+        string ans_xml_num,quiz_xml_num; //文字列格納用
+        stringstream ss_ans,ss_quiz; //StringStream
 
-    ss_ans << "q" << to_string(quiz_number + 1) << ":ans";
-    ss_ans >> ans_xml_num;
-    answer = quiz_xml.getValue(ans_xml_num, ""); //xmlの読み込み
+        ss_ans << "q" << to_string(quiz_number + 1) << ":ans";
+        ss_ans >> ans_xml_num;
+        answer = quiz_xml.getValue(ans_xml_num, ""); //xmlの読み込み
 
-    ss_quiz << "q" << to_string(quiz_number + 1) << ":statement";
-    ss_quiz >> quiz_xml_num;
-    string s = quiz_xml.getValue(quiz_xml_num, ""); //xmlの読み込み
+        ss_quiz << "q" << to_string(quiz_number + 1) << ":statement";
+        ss_quiz >> quiz_xml_num;
+        string s = quiz_xml.getValue(quiz_xml_num, ""); //xmlの読み込み
 
-    getSharedData().font.drawString(ans_xml_num,0,120);
-    getSharedData().font.drawString(quiz_xml_num,0,150);
+        getSharedData().font.drawString(ans_xml_num,0,120);
+        getSharedData().font.drawString(quiz_xml_num,0,150);
 
-    if((!isans_1p) && (!isans_2p)){
-        if(s.length() >= timer/6 && timer%18 == 0){
-            if(timer%396==0 && timer!=0) {
-                statement += '\n';
+        if((!isans_1p) && (!isans_2p)){
+            if(s.length() >= timer/6 && timer%18 == 0){
+                if(timer%396==0 && timer!=0) {
+                    statement += '\n';
+                }
+                statement += s.substr(timer/6,3);
             }
-            statement += s.substr(timer/6,3);
+            timer++;
         }
-        timer++;
+    }else{
+        changeState("result");
     }
 }
 
