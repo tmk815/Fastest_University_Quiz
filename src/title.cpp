@@ -90,11 +90,11 @@ void title::draw(){
 void title::mousePressed(int x, int y, int button){
     if(x/w==1 && 0<(y-40)/h && (y-40)/h<8){ //ジャンル選択
         left=(y-40)/h;
-        getSharedData().genre = left-1; //1~7
+        getSharedData().genre = left-1; //0~6
     }
     if(x/w==14 && 0<(y-40)/h && (y-40)/h<8){ //問題数選択
         right=(y-40)/h;
-        getSharedData().number_of_questions = right-1; //1~7
+        getSharedData().number_of_questions = right; //1~7
     }
     if((y-40)/h==7 && 5<x/w && x/w<10 && 0<left && 0<right){ //開始ボタン判定
         changeState("quiz");
