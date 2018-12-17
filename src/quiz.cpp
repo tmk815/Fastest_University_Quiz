@@ -28,9 +28,6 @@ void quiz::update(){
         ss_quiz >> quiz_xml_num;
         string s = quiz_xml.getValue(quiz_xml_num, ""); //xmlの読み込み
 
-        getSharedData().font.drawString(ans_xml_num,0,120);
-        getSharedData().font.drawString(quiz_xml_num,0,150);
-
         if((!isans_1p) && (!isans_2p)){
             if(s.length() >= timer/6 && timer%18 == 0){
                 if(timer%396==0 && timer!=0) {
