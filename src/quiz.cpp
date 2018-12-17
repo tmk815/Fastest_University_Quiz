@@ -2,23 +2,28 @@
 
 //--------------------------------------------------------------
 void quiz::setup(){
-    quiz_xml.loadFile("English.xml");
-    isans_1p = false;
-    isans_2p = false;
-    tryed_1p = false;
-    tryed_2p = false;
-    timer=0;
-    player_ans = "";
-    getSharedData().correct_answers_1p = 0;
-    getSharedData().correct_answers_2p = 0;
-    getSharedData().Unanswered_numbers = 0;
-    position = 0;
-    quiz_number = 0;
+    first = true;
     srand(time_t(NULL));
 }
 
 //--------------------------------------------------------------
 void quiz::update(){
+    if(first){
+        quiz_xml.loadFile(getSharedData().genrefile[getSharedData().genre]+".xml");
+        isans_1p = false;
+        isans_2p = false;
+        tryed_1p = false;
+        tryed_2p = false;
+        timer=0;
+        player_ans = "";
+        getSharedData().correct_answers_1p = 0;
+        getSharedData().correct_answers_2p = 0;
+        getSharedData().Unanswered_numbers = 0;
+        position = 0;
+        quiz_number = 0;
+        first = false;
+
+    }
     if(quiz_number < getSharedData().number_of_questions){
         string ans_xml_num,quiz_xml_num; //文字列格納用
         stringstream ss_ans,ss_quiz; //StringStream
@@ -41,6 +46,7 @@ void quiz::update(){
             timer++;
         }
     }else{
+        first = true;
         changeState("result");
     }
 
