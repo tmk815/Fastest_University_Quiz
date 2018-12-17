@@ -2,8 +2,8 @@
 
 //--------------------------------------------------------------
 void title::setup(){
-    mecha60.load("mechanoarc.ttf", 60); //
-    mecha40.load("mechanoarc.ttf", 40); //
+    mecha60.load("mechanoarc.otf", 60); //
+    mecha40.load("mechanoarc.otf", 40); //
     timer = 0; //時間初期宣言
     left = right = -10; //
 }
@@ -30,8 +30,12 @@ void title::draw(){
             ofNoFill();
             ofSetColor(ofColor::black);
             ofDrawBox(w+w, h*left+40+h/2, 0, h);
-            ofSetColor(ofColor::white);
+            ofDisableDepthTest(); //3dの動作正常化OFF
+            ofSetColor(ofColor::red);
+            mecha60.drawString(""+ofToString(i), w+w/2, h*left+40+h);
+            ofEnableDepthTest(); //3dの動作正常化ON
         }else{
+            ofSetColor(ofColor::white);
             ofDrawBox(w+w/2, h*i+40+h/2, 0, h);
         }
         if(right==i){
@@ -41,13 +45,18 @@ void title::draw(){
             ofNoFill();
             ofSetColor(ofColor::black);
             ofDrawBox(w*14, h*right+40+h/2, 0, h);
-            ofSetColor(ofColor::white);
+            ofDisableDepthTest(); //3dの動作正常化OFF
+            ofSetColor(ofColor::red);
+            mecha60.drawString(""+ofToString(i), w*14, h*right+40+h);
+            ofEnableDepthTest(); //3dの動作正常化ON
         }else{
+            ofSetColor(ofColor::white);
             ofDrawBox(w*14+w/2, h*i+40+h/2, 0, h);
         }
     }
     for(int i=0; i<4; i++){
         ofFill();
+        ofSetColor(ofColor::white);
         ofDrawBox(w*(6.5+i), h*7.5+40, 0, w);
     }
     ofDisableDepthTest(); //3dの動作正常化OFF
