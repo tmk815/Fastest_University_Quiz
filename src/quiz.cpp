@@ -101,12 +101,14 @@ void quiz::mousePressed(int x, int y, int button){
 }
 
 void quiz::keyReleased(int key){
-    if(key == 'a' && !isans_2p){ //1Pが回答ボタンを押したとき
+    if(key == 'a' && !isans_2p && !tryed_1p){ //1Pが回答ボタンを押したとき
         isans_1p= true;   //回答フラグをtrueに
+        tryed_1p = true;
         getSharedData().incorrect_answer_1p++;
         makeChoices();
-    }else if(key == 'l' && !isans_2p){ //2Pが回答ボタンを押したとき
+    }else if(key == 'l' && !isans_2p && !tryed_2p){ //2Pが回答ボタンを押したとき
         isans_2p = true;   //回答フラグをtrueに
+        tryed_2p = true;
         getSharedData().incorrect_answer_2p++;
         makeChoices();
     }else if(key == 'r'){
