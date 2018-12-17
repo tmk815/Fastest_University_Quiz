@@ -133,17 +133,21 @@ void quiz::checkAns(){
             getSharedData().correct_answers_1p++;
             getSharedData().incorrect_answer_1p--;
             quiz_number++;
+            tryed_1p = tryed_2p = false;
+            statement = "";
+            timer = 0;
         } else if(answer.compare(player_ans) == 0 && isans_2p){
             getSharedData().correct_answers_2p++;
             getSharedData().incorrect_answer_2p--;
             quiz_number++;
+            tryed_1p = tryed_2p = false;
+            statement = "";
+            timer = 0;
         }
         isans_1p = false;
         isans_2p = false;
         player_ans = "";
         position = 0;
-        timer = 0;
-        statement = "";
     }
 }
 
