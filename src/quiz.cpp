@@ -11,7 +11,7 @@ void quiz::setup(){
     player_ans = "";
     getSharedData().correct_answers_1p = 0;
     getSharedData().correct_answers_2p = 0;
-    getSharedData().Unanswered_number = 0;
+    getSharedData().Unanswered_numbers = 0;
     position = 0;
     quiz_number = 0;
     srand(time_t(NULL));
@@ -46,7 +46,7 @@ void quiz::update(){
 
     if(timer >= 600){
         quiz_number++;
-        getSharedData().Unanswered_number++;
+        getSharedData().Unanswered_numbers++;
         timer=0;
         statement = "";
         tryed_1p = tryed_2p = false;
