@@ -104,12 +104,12 @@ void quiz::keyReleased(int key){
     if(key == 'a' && !isans_2p && !tryed_1p){ //1Pが回答ボタンを押したとき
         isans_1p= true;   //回答フラグをtrueに
         tryed_1p = true;
-        getSharedData().incorrect_answer_1p++;
+        getSharedData().incorrect_answers_1p++;
         makeChoices();
     }else if(key == 'l' && !isans_2p && !tryed_2p){ //2Pが回答ボタンを押したとき
         isans_2p = true;   //回答フラグをtrueに
         tryed_2p = true;
-        getSharedData().incorrect_answer_2p++;
+        getSharedData().incorrect_answers_2p++;
         makeChoices();
     }else if(key == 'r'){
         isans_1p = isans_2p = false;
@@ -131,14 +131,14 @@ void quiz::checkAns(){
     if(answer.length() <= player_ans.length()){
         if(answer.compare(player_ans) == 0 && isans_1p){
             getSharedData().correct_answers_1p++;
-            getSharedData().incorrect_answer_1p--;
+            getSharedData().incorrect_answers_1p--;
             quiz_number++;
             tryed_1p = tryed_2p = false;
             statement = "";
             timer = 0;
         } else if(answer.compare(player_ans) == 0 && isans_2p){
             getSharedData().correct_answers_2p++;
-            getSharedData().incorrect_answer_2p--;
+            getSharedData().incorrect_answers_2p--;
             quiz_number++;
             tryed_1p = tryed_2p = false;
             statement = "";
