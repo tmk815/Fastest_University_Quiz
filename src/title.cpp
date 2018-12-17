@@ -32,7 +32,7 @@ void title::draw(){
             ofDrawBox(w+w, h*left+40+h/2, 0, h);
             ofDisableDepthTest(); //3dの動作正常化OFF
             ofSetColor(ofColor::red);
-            mecha60.drawString(""+ofToString(i), w+w/2, h*left+40+h);
+            getSharedData().font.drawString(""+getSharedData().genrename[i-1], w+w/2, h*left+40+h);
             ofEnableDepthTest(); //3dの動作正常化ON
         }else{
             ofSetColor(ofColor::white);
@@ -90,11 +90,11 @@ void title::draw(){
 void title::mousePressed(int x, int y, int button){
     if(x/w==1 && 0<(y-40)/h && (y-40)/h<8){ //ジャンル選択
         left=(y-40)/h;
-        getSharedData().genre = left; //1~7
+        getSharedData().genre = left-1; //1~7
     }
     if(x/w==14 && 0<(y-40)/h && (y-40)/h<8){ //問題数選択
         right=(y-40)/h;
-        getSharedData().number_of_questions = right; //1~7
+        getSharedData().number_of_questions = right-1; //1~7
     }
     if((y-40)/h==7 && 5<x/w && x/w<10 && 0<left && 0<right){ //開始ボタン判定
         changeState("quiz");
