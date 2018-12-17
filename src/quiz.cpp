@@ -43,6 +43,15 @@ void quiz::update(){
     }else{
         changeState("result");
     }
+
+    if(timer >= 300){
+        quiz_number++;
+        getSharedData().Unanswered_number++;
+        timer=0;
+        statement = "";
+        tryed_1p = tryed_2p = false;
+        position = 0;
+    }
 }
 
 //--------------------------------------------------------------
