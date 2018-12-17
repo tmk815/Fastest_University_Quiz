@@ -75,6 +75,12 @@ void quiz::draw(){
 
         getSharedData().font.drawString(player_ans,ofGetWidth()/2,300);
     }
+
+    if(isans_1p){
+        getSharedData().font.drawString("回答者：1P",ofGetWidth()/2,30);
+    }else if(isans_2p){
+        getSharedData().font.drawString("回答者：2P",ofGetWidth()/2,30);
+    }
 }
 
 void quiz::mousePressed(int x, int y, int button){
