@@ -19,7 +19,7 @@ void quiz::setup(){
 
 //--------------------------------------------------------------
 void quiz::update(){
-    if(quiz_number < 3){
+    if(quiz_number < getSharedData().number_of_questions){
         string ans_xml_num,quiz_xml_num; //文字列格納用
         stringstream ss_ans,ss_quiz; //StringStream
 
