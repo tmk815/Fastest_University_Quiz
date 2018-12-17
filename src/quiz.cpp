@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void quiz::setup(){
-    quiz_xml.loadFile("DB.xml");
+    quiz_xml.loadFile("English.xml");
     isans_1p = false;
     isans_2p = false;
     tryed_1p = false;
