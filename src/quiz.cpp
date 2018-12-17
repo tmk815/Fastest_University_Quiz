@@ -44,7 +44,7 @@ void quiz::update(){
         changeState("result");
     }
 
-    if(timer >= 300){
+    if(timer >= 600){
         quiz_number++;
         getSharedData().Unanswered_number++;
         timer=0;
