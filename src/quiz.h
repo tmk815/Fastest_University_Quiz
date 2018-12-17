@@ -19,6 +19,7 @@ class quiz : public itg::ofxState<SharedData>{ //ofxStateを継承
     string statement; //問題文
     string answer; //正解
     bool isans_1p,isans_2p; //回答中かどうかのフラグ
+    bool tryed_1p,tryed_2p; //各問題回答済みかどうかのフラグ
     unsigned int timer; //文字数に使うtimer
     string player_ans; //回答
     string choice[4]; //選択肢
