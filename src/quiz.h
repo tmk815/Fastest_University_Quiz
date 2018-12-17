@@ -19,10 +19,12 @@ class quiz : public itg::ofxState<SharedData>{ //ofxStateを継承
     string statement; //問題文
     string answer; //正解
     bool isans_1p,isans_2p; //回答中かどうかのフラグ
+    bool tryed_1p,tryed_2p; //各問題回答済みかどうかのフラグ
     unsigned int timer; //文字数に使うtimer
     string player_ans; //回答
     string choice[4]; //選択肢
-    char hrgn[46][4] = {
+    char hrgn[72][4] = {
+            "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","x",
             "あ","い","う","え","お","か","き","く","け","こ","さ","し","す","せ","そ",
             "た","ち","つ","て","と","な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ",
             "ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ","わ","を","ん" }; //あ～ん生成用

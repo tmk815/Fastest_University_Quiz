@@ -2,13 +2,16 @@
 
 //--------------------------------------------------------------
 void quiz::setup(){
-    quiz_xml.loadFile("DB.xml");
+    quiz_xml.loadFile("English.xml");
     isans_1p = false;
     isans_2p = false;
+    tryed_1p = false;
+    tryed_2p = false;
     timer=0;
     player_ans = "";
     getSharedData().correct_answers_1p = 0;
     getSharedData().correct_answers_2p = 0;
+    getSharedData().Unanswered_number = 0;
     position = 0;
     quiz_number = 0;
     srand(time_t(NULL));
@@ -16,7 +19,7 @@ void quiz::setup(){
 
 //--------------------------------------------------------------
 void quiz::update(){
-    if(quiz_number < 3){
+    if(quiz_number < getSharedData().number_of_questions){
         string ans_xml_num,quiz_xml_num; //文字列格納用
         stringstream ss_ans,ss_quiz; //StringStream
 
@@ -39,6 +42,15 @@ void quiz::update(){
         }
     }else{
         changeState("result");
+    }
+
+    if(timer >= 300){
+        quiz_number++;
+        getSharedData().Unanswered_number++;
+        timer=0;
+        statement = "";
+        tryed_1p = tryed_2p = false;
+        position = 0;
     }
 }
 
@@ -63,6 +75,12 @@ void quiz::draw(){
 
         getSharedData().font.drawString(player_ans,ofGetWidth()/2,300);
     }
+
+    if(isans_1p){
+        getSharedData().font.drawString("回答者：1P",ofGetWidth()/2,30);
+    }else if(isans_2p){
+        getSharedData().font.drawString("回答者：2P",ofGetWidth()/2,30);
+    }
 }
 
 void quiz::mousePressed(int x, int y, int button){
@@ -83,12 +101,14 @@ void quiz::mousePressed(int x, int y, int button){
 }
 
 void quiz::keyReleased(int key){
-    if(key == 'a' && !isans_2p){ //1Pが回答ボタンを押したとき
+    if(key == 'a' && !isans_2p && !tryed_1p){ //1Pが回答ボタンを押したとき
         isans_1p= true;   //回答フラグをtrueに
+        tryed_1p = true;
         getSharedData().incorrect_answer_1p++;
         makeChoices();
-    }else if(key == 'l' && !isans_2p){ //2Pが回答ボタンを押したとき
+    }else if(key == 'l' && !isans_2p && !tryed_2p){ //2Pが回答ボタンを押したとき
         isans_2p = true;   //回答フラグをtrueに
+        tryed_2p = true;
         getSharedData().incorrect_answer_2p++;
         makeChoices();
     }else if(key == 'r'){
@@ -98,7 +118,7 @@ void quiz::keyReleased(int key){
 
 void quiz::makeChoices(){
     for(int j=0;j<4;j++){
-        int i = rand() % 46;
+        int i = rand() % 72;
         choice[j] = hrgn[i];
     }
     choice[rand()%4] = answer.substr(position,1);
@@ -113,17 +133,21 @@ void quiz::checkAns(){
             getSharedData().correct_answers_1p++;
             getSharedData().incorrect_answer_1p--;
             quiz_number++;
+            tryed_1p = tryed_2p = false;
+            statement = "";
+            timer = 0;
         } else if(answer.compare(player_ans) == 0 && isans_2p){
             getSharedData().correct_answers_2p++;
             getSharedData().incorrect_answer_2p--;
             quiz_number++;
+            tryed_1p = tryed_2p = false;
+            statement = "";
+            timer = 0;
         }
         isans_1p = false;
         isans_2p = false;
         player_ans = "";
         position = 0;
-        timer = 0;
-        statement = "";
     }
 }
 
