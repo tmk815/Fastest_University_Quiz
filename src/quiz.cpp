@@ -11,6 +11,7 @@ void quiz::setup(){
     player_ans = "";
     getSharedData().correct_answers_1p = 0;
     getSharedData().correct_answers_2p = 0;
+    getSharedData().Unanswered_number = 0;
     position = 0;
     quiz_number = 0;
     srand(time_t(NULL));
