@@ -118,7 +118,7 @@ void quiz::keyReleased(int key){
 
 void quiz::makeChoices(){
     for(int j=0;j<4;j++){
-        int i = rand() % 46;
+        int i = rand() % 72;
         choice[j] = hrgn[i];
     }
     choice[rand()%4] = answer.substr(position,1);
