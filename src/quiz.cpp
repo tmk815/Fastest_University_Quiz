@@ -5,6 +5,8 @@ void quiz::setup(){
     quiz_xml.loadFile("DB.xml");
     isans_1p = false;
     isans_2p = false;
+    tryed_1p = false;
+    tryed_2p = false;
     timer=0;
     player_ans = "";
     getSharedData().correct_answers_1p = 0;
