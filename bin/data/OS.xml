@@ -1,0 +1,24 @@
+﻿<q1>
+    <statement>ページ置き換えアルゴリズムで最も古いページから追い出すものはなんでしょう</statement>
+    <ans>ＦＩＦＯ</ans>
+</q1>
+
+<q2>
+    <statement>ページ置き換えアルゴリズムでページフォルト数が最小となるものはなんでしょう</statement>
+    <ans>ＯＰＴ</ans>
+</q2>
+
+<q3>
+    <statement>ページ置き換えアルゴリズムで統計上最適に近づくものはなんでしょう</statement>
+    <ans>ＬＲＵ</ans>
+</q3>
+
+<q4>
+    <statement>指定バイト分、メモリ領域を確保する命令はなんでしょう</statement>
+    <ans>malloc</ans>
+</q4>
+
+<q5>
+    <statement>プロセスのコピーを生成する命令はなんでしょう</statement>
+    <ans>fork</ans>
+</q5>
