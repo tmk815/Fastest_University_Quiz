@@ -79,7 +79,9 @@ void quiz::draw(){
         ofDrawRectangle(750,400,90,90);
         getSharedData().font.drawString(choice[3],780,460);
 
+        ofSetColor(255,0,0);
         getSharedData().font.drawString(player_ans,ofGetWidth()/2,300);
+        ofSetColor(255,255,255);
     }
 
     if(isans_1p){
