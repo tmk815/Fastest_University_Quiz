@@ -62,10 +62,10 @@ void quiz::update(){
 
 //--------------------------------------------------------------
 void quiz::draw(){
-    getSharedData().font.drawString(ofToString(position),0,30);
-    getSharedData().font.drawString(ofToString(getSharedData().number_of_questions),0,60);
-    getSharedData().font.drawString("1P得点："+ofToString(getSharedData().correct_answers_1p),0,90);
-    getSharedData().font.drawString("2P得点："+ofToString(getSharedData().correct_answers_2p),0,120);
+    //getSharedData().font.drawString(ofToString(position),0,30);
+    //getSharedData().font.drawString(ofToString(getSharedData().number_of_questions),0,60);
+    getSharedData().font.drawString("1P得点："+ofToString(getSharedData().correct_answers_1p),0,30);
+    getSharedData().font.drawString("2P得点："+ofToString(getSharedData().correct_answers_2p),0,60);
     getSharedData().font.drawString(statement,0,ofGetHeight()/2);
 
     if(isans_1p || isans_2p){
@@ -79,7 +79,9 @@ void quiz::draw(){
         ofDrawRectangle(750,400,90,90);
         getSharedData().font.drawString(choice[3],780,460);
 
+        ofSetColor(255,0,0);
         getSharedData().font.drawString(player_ans,ofGetWidth()/2,300);
+        ofSetColor(255,255,255);
     }
 
     if(isans_1p){
