@@ -8,17 +8,17 @@ void result::setup(){
 
 //--------------------------------------------------------------
 void result::update(){
-	/*getSharedData().correct_answers_1p=2;
-	getSharedData().correct_answers_2p=1;
-	getSharedData().incorrect_answers_1p=1;
-	getSharedData().incorrect_answers_2p=2;
-	getSharedData().number_of_questions=3;
-	getSharedData().Unanswered_numbers=2;*/
+	/*getSharedData().correct_answers_1p=1;
+	getSharedData().correct_answers_2p=2;
+	getSharedData().incorrect_answers_1p=4;
+	getSharedData().incorrect_answers_2p=8;
+	getSharedData().number_of_questions=16;
+	getSharedData().Unanswered_numbers=1;*/
 	if(getSharedData().correct_answers_1p==getSharedData().correct_answers_2p)winner="ＤＲＡＷ";
 	if(getSharedData().correct_answers_1p>getSharedData().correct_answers_2p)winner="勝者：1P";
 	if(getSharedData().correct_answers_1p<getSharedData().correct_answers_2p)winner="勝者：2P";
-	correct_ratio_1p=getSharedData().correct_answers_1p/(double)getSharedData().number_of_questions;
-	correct_ratio_2p=getSharedData().correct_answers_2p/(double)getSharedData().number_of_questions;
+	correct_ratio_1p=getSharedData().correct_answers_1p/(double)(getSharedData().correct_answers_1p+getSharedData().incorrect_answers_1p);
+	correct_ratio_2p=getSharedData().correct_answers_2p/(double)(getSharedData().correct_answers_2p+getSharedData().incorrect_answers_2p);
 	incorrect_ratio_1p=getSharedData().incorrect_answers_1p/(double)(getSharedData().correct_answers_1p+getSharedData().incorrect_answers_1p);
 	incorrect_ratio_2p=getSharedData().incorrect_answers_2p/(double)(getSharedData().correct_answers_2p+getSharedData().incorrect_answers_2p);
 	unanswered_ratio=getSharedData().Unanswered_numbers/(double)getSharedData().number_of_questions;
