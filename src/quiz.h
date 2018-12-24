@@ -30,5 +30,5 @@ class quiz : public itg::ofxState<SharedData>{ //ofxStateを継承
             "ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ","わ","を","ん" }; //あ～ん生成用
     unsigned int position; //回答が何文字目か
     int quiz_number; //何番目の問題か
-    bool first;
+    bool first; //初回かどうか
 };
